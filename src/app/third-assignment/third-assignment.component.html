@@ -1,0 +1,13 @@
+<button 
+    class="btn btn-primary"
+    (click)="toggleDetails()"
+>Display Details</button>
+
+<p *ngIf="isVisible">To automatically format code in Visual Studio Code (VS Code), you can install an extension like Prettier or Flutter. You can find the extensions icon in the menu of your VS Code.</p>
+<br/>
+<label>Click Count</label>
+<p 
+    *ngFor="let cnt of clickArr; let i = index"
+    [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{higherCount: i >= 4}"
+>{{cnt}}</p>
