@@ -1,6 +1,33 @@
 <div class="container">
   <h1>Angular Assignments</h1>
   <div class="row">
+    
+    <h2>Assignment 4</h2>
+    <div class="col-xl-12">
+      <div class="row">
+        <app-game-control (gameStarted)="onGameStarted($event)"></app-game-control>
+      </div>
+      <div class="row">
+        <div class="col-xl-6">
+          <app-odd 
+          *ngFor="let oddOP of gameOutput"
+          [oddNumber]="oddOP"
+          >
+            <p class="odd" *ngIf="oddOP%2 !== 0">Odd no. - {{oddOP}}</p>
+          </app-odd>
+        </div>
+        <div class="col-xl-6">
+          <app-even
+          *ngFor="let evenOP of gameOutput"
+          [evenNumber]="evenOP"
+          >
+          <p class="even" *ngIf="evenOP%2 === 0">Even no. - {{evenOP}}</p>
+          </app-even>
+        </div>
+      </div>
+    </div>
+
+    <hr />
     <h2>Assignment 3</h2>
     <div class="col-xl-12">
       <app-third-assignment></app-third-assignment>

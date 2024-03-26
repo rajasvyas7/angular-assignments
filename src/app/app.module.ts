@@ -7,6 +7,9 @@ import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { SecondAssignmentComponent } from './second-assignment/second-assignment.component';
 import { FormsModule } from '@angular/forms';
 import { ThirdAssignmentComponent } from './third-assignment/third-assignment.component';
+import { GameControlComponent } from './game-control/game-control.component';
+import { OddComponent } from './odd/odd.component';
+import { EvenComponent } from './even/even.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { ThirdAssignmentComponent } from './third-assignment/third-assignment.co
     WarningAlertComponent,
     SuccessAlertComponent,
     SecondAssignmentComponent,
-    ThirdAssignmentComponent
+    ThirdAssignmentComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent
   ],
   imports: [
     BrowserModule,
