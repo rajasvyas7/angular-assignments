@@ -10,6 +10,10 @@ import { ThirdAssignmentComponent } from './third-assignment/third-assignment.co
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { UserService } from './services/user.service';
+import { CounterService } from './services/counter.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,15 @@ import { EvenComponent } from './even/even.component';
     ThirdAssignmentComponent,
     GameControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
