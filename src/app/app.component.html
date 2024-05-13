@@ -1,6 +1,46 @@
 <div class="container">
   <h1>Angular Assignments</h1>
   <div class="row">
+    <h2>Assignment 6 - TD Forms</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <form #f="ngForm" (ngSubmit)="frmTdSubmit()">
+            <div class="form-group">
+              <label for="projectName">Project Name</label>
+              <input 
+                id="projectName" type="text" class="form-control" 
+                [ngClass]="{'error-border':  ipProjName.touched && ipProjName.invalid}" 
+                name="projectName" ngModel required #ipProjName="ngModel"
+              />
+              <div class="invalid-feedback" *ngIf="ipProjName.touched && ipProjName.invalid">{{ipProjName.errors.errorMsg ||  "Enter a project name" }}</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="text" class="form-control" 
+              name="email" ngModel required email #ipEmail="ngModel"
+              [ngClass]="{'error-border':  ipEmail.touched && ipEmail.invalid}"
+            />
+              <div class="invalid-feedback" *ngIf="ipEmail.touched && ipEmail.invalid">Enter a valid Email</div>
+            </div>
+            <div class="form-group">
+              <label for="status">Project Status</label>
+              <select 
+                id="status" class="form-control" name="status" 
+                #ddStatusRef="ngModel" ngModel required 
+                [ngClass]="{'error-border':  ddStatusRef.touched && ddStatusRef.invalid}"  
+              >
+                <option *ngFor="let opt of ddStatus" value="{{opt.val}}">{{opt.label}}</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="ddStatusRef.touched && ddStatusRef.invalid">Select a status</div>
+            </div>
+            <button class="btn-primary btn" type="submit" [disabled]="f.invalid">Submit</button> 
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr />
     <h2>Assignment 5</h2>
     <div class="col-xl-12">
       <div class="row">
