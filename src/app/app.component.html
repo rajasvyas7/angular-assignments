@@ -1,6 +1,52 @@
 <div class="container">
   <h1>Angular Assignments</h1>
   <div class="row">
+    <h2>Assignment 7 - Reactive Forms</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <form [formGroup]="projectForm" (ngSubmit)="onReactiveFormSubmit()">
+            <div class="form-group">
+              <label>Project Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                formControlName="projectName" 
+                [ngClass]="{'error-border': checkValidity('projectName')}"
+              >
+              <span class="invalid-feedback" *ngIf="checkValidity('projectName')">
+                <p *ngIf="projectForm.get('projectName').hasError('required')">Please enter the project name.</p>
+                <p *ngIf="projectForm.get('projectName').hasError('name_forbidden')">This project name is forbidden.</p>
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                formControlName="email"
+                [ngClass]="{'error-border': checkValidity('email')}"
+              >
+              <span class="invalid-feedback" *ngIf="checkValidity('email')">
+                <p *ngIf="projectForm.get('email').hasError('email_forbidden'); else invalidEmailError">This email id is forbidden.</p>
+                <ng-template #invalidEmailError>Please enter a valid email id.</ng-template>
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select class="form-control" formControlName="status" [ngClass]="{'error-border': checkValidity('status')}">
+                <option *ngFor="let opt of ddStatus" value="{{opt.val}}">{{opt.label}}</option>
+              </select>
+              <span class="invalid-feedback" *ngIf="checkValidity('status')">Please select a status</span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid || projectForm.pending">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
     <h2>Assignment 6 - TD Forms</h2>
     <div class="container">
       <div class="row">
